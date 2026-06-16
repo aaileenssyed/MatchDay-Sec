@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050607;
+  --terminal: #07100b;
+  --line: #1f3b2f;
+  --green: #49f28a;
+  --gold: #f8c14d;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #fff8df;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  overflow: hidden;
+}
+
+::selection { background: rgba(73, 242, 138, 0.22); color: white; }
+button, input, a { -webkit-tap-highlight-color: transparent; }
+
+.terminal-shell {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(73, 242, 138, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 100%, rgba(248, 193, 77, 0.075), transparent 30%),
+    linear-gradient(rgba(73, 242, 138, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 242, 138, 0.025) 1px, transparent 1px),
+    #050607;
+  background-size: auto, auto, 36px 36px, 36px 36px, auto;
+}
+
+.terminal-window {
+  position: relative;
+}
+
+.terminal-window::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 4px);
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+.status-strip ::-webkit-scrollbar { height: 4px; }
+.status-strip ::-webkit-scrollbar-thumb { background: rgba(73, 242, 138, 0.28); border-radius: 999px; }
+
+.choice-button { transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+.choice-button:hover { transform: translateY(-1px); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #040605; }
+::-webkit-scrollbar-thumb { background: rgba(73, 242, 138, 0.22); border: 2px solid #040605; }
+::-webkit-scrollbar-thumb:hover { background: rgba(73, 242, 138, 0.38); }
+
+@media (max-width: 1023px) {
+  body { overflow: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
