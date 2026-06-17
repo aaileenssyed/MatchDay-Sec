@@ -633,7 +633,7 @@ export function MatchdaySecTerminal() {
 
                     <form onSubmit={startMission} className="mt-8 rounded-xl border border-[#1f3b2f] bg-black/35 p-4 sm:p-5">
                       <label htmlFor="analyst-name" className="block text-sm text-white/58">
-                        <span className="text-[#49f28a]">> whoami</span>
+                        <span className="text-[#49f28a]"> whoami</span>
                       </label>
                       <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                         <input
